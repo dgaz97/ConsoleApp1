@@ -49,6 +49,19 @@ namespace ConsoleApp1
             osobe.ForEach(x => Console.WriteLine(x));
             Console.WriteLine();
 
+            //Test ConsoleKeyInfo
+            ConsoleKeyInfo cki = new ConsoleKeyInfo();
+            cki = System.Console.ReadKey();
+            Console.WriteLine(cki.Key.ToString());
+            Console.WriteLine(cki.Modifiers);
+            Console.WriteLine(cki.KeyChar.ToString());
+            if (cki.Key == ConsoleKey.D)
+            {
+                Console.WriteLine("Pritisnuto D");
+            }
+
+
+
         }
     }
 }
