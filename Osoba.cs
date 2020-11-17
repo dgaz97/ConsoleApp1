@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleApp1
 {
-    class Osoba : IComparable
+    class Osoba : IComparable, IDisposable
     {
         public Osoba(String ime, String prezime, Int16 dob)
         {
@@ -21,6 +19,11 @@ namespace ConsoleApp1
             Osoba o = (Osoba)obj;
             //return this.Dob.CompareTo(o.Dob); //manje->vise
             return o.Dob.CompareTo(this.Dob); //vise->manje
+        }
+
+        public void Dispose()
+        {
+            Console.WriteLine($"{Ime} {Prezime} izbrisan");
         }
 
         public override string ToString()

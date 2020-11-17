@@ -20,6 +20,12 @@ namespace ConsoleApp1
 
             osobe.ForEach(x => Console.WriteLine(x));
 
+            using (Osoba testOsoba = new Osoba("Ivan","Ivanić", 20))
+            {
+                Console.WriteLine(testOsoba.ToString());
+            }
+            Console.Beep();
+
         }
     }
 }
