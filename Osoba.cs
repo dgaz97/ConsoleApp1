@@ -37,7 +37,8 @@ namespace ConsoleApp1
         {
             Osoba o = (Osoba)obj;
             //return this.Dob.CompareTo(o.Dob); //manje->vise
-            return o.Dob.CompareTo(this.Dob); //vise->manje
+            return this.Prezime.CompareTo(o.Prezime);
+            //return o.Dob.CompareTo(this.Dob); //vise->manje
         }
 
         public void Dispose()
