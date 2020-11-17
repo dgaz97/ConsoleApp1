@@ -16,6 +16,7 @@ namespace ConsoleApp1
 
             //Test IComparable
             osobe.ForEach(x => Console.WriteLine(x));
+            Console.WriteLine();
 
             osobe.Sort();
 
@@ -27,6 +28,7 @@ namespace ConsoleApp1
                 Console.WriteLine(testOsoba.ToString());
             }
             Console.Beep();
+            Console.WriteLine();
 
 
             //Test exception
