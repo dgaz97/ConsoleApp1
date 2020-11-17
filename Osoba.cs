@@ -29,7 +29,7 @@ namespace ConsoleApp1
         public Osoba(String ime, String prezime, Int16 dob)
         {
             Ime = ime;
-            Prezime = Prezime;
+            Prezime = prezime;
             Dob = dob;
         }
 
