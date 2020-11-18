@@ -11,15 +11,15 @@ namespace ConsoleApp1
         {
             List<Osoba> osobe = new List<Osoba>();
 
-            osobe.Add(new Osoba("Ana","Anić",23));
-            osobe.Add(new Osoba("Ivo","Ivić",27));
+            osobe.Add(new Osoba("Ana", "Anić", 23));
+            osobe.Add(new Osoba("Ivo", "Ivić", 27));
             //osobe.Add(new Osoba("Pero","Perić",25));
 
             Type tip = Type.GetType("ConsoleApp1.Osoba");
             Osoba osoba = (Osoba)Activator.CreateInstance(tip, new object[] { (String)"Pero", (String)"Perić", (Int16)25 });//Refleksija
             osobe.Add(osoba);
 
-            osobe.Add(new Osoba("Eva","Ević",22));
+            osobe.Add(new Osoba("Eva", "Ević", 22));
 
             //Test IComparable
             osobe.ForEach(x => Console.WriteLine(x));
@@ -30,7 +30,7 @@ namespace ConsoleApp1
             osobe.ForEach(x => Console.WriteLine(x));
 
             //Test IDisposable
-            using (Osoba testOsoba = new Osoba("Ivan","Ivanić", 20))
+            using (Osoba testOsoba = new Osoba("Ivan", "Ivanić", 20))
             {
                 Console.WriteLine(testOsoba.ToString());
             }
@@ -98,7 +98,7 @@ namespace ConsoleApp1
             Console.WriteLine();
 
 
-
         }
+
     }
 }
