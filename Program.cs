@@ -97,6 +97,14 @@ namespace ConsoleApp1
             Console.WriteLine(HttpUtility.HtmlDecode(s2));
             Console.WriteLine();
 
+            //Test Indexer
+            Number n = new Number();
+            n[0] = 5;
+            n[1] = 6;
+            n[2] = 7;
+            n[3] = 8;
+            n[4] = 9;
+            Console.WriteLine(n[3]);
 
         }
 
