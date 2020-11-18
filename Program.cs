@@ -69,6 +69,15 @@ namespace ConsoleApp1
 
             //Console.WriteLine(Environment.GetCommandLineArgs()[0]);
 
+            //Test DateTime and TimeSpan
+            DateTime date = DateTime.Now;
+            Console.WriteLine(date.ToString("dd*MMMM*yy hh.mm.ss.ffffff"));
+            DateTime date2 = date.AddMonths(4);
+            Console.WriteLine(date2.ToString("dd*MMMM*yy hh.mm.ss.ffffff"));
+            TimeSpan timeSpan = date.Subtract(date2);
+            Console.WriteLine(timeSpan.TotalDays);
+            Console.WriteLine(date.CompareTo(date2));
+            
 
 
         }
