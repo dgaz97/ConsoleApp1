@@ -115,7 +115,7 @@ namespace ConsoleApp1
 
 
             //Test file
-            Directory.CreateDirectory(@"./file/");
+            DirectoryInfo di = Directory.CreateDirectory(@"./file/");
             Stream f = new FileStream(@"./file/testfile.txt",FileMode.OpenOrCreate|FileMode.Append);
             StreamWriter sw = new StreamWriter(f);
             sw.WriteLine("Linija");
@@ -142,6 +142,14 @@ namespace ConsoleApp1
             f2 = new FileStream(@"./file/objects.txt", FileMode.Open, FileAccess.Read);
             osobe2 = (List<Osoba>) binaryFormatter.Deserialize(f2);
             osobe2.ForEach(x => Console.WriteLine(x.ToString()));
+            Console.WriteLine();
+
+            //Test File Info
+            FileInfo fi = new FileInfo(@"./file/objects.txt");
+            Console.WriteLine(fi.FullName);
+            Console.WriteLine(fi.CreationTime);
+            Console.WriteLine(fi.LastAccessTime);
+            Console.WriteLine();
 
 
 
