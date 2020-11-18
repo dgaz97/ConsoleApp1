@@ -150,6 +150,8 @@ namespace ConsoleApp1
             Console.WriteLine(fi.CreationTime);
             Console.WriteLine(fi.LastAccessTime);
             Console.WriteLine();
+            f2.Close();
+            File.Delete(fi.FullName);
 
 
 
