@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace ConsoleApp1
 {
@@ -77,7 +78,16 @@ namespace ConsoleApp1
             TimeSpan timeSpan = date.Subtract(date2);
             Console.WriteLine(timeSpan.TotalDays);
             Console.WriteLine(date.CompareTo(date2));
-            
+            Console.WriteLine();
+
+            //Test StringBuilder
+            StringBuilder sb = new StringBuilder("pocetak stringa");
+            sb.Append($"{osobe[1].ToString()}");
+            Console.WriteLine(sb);
+            sb.Insert(3, "INSERT");
+            Console.WriteLine(sb);
+            Console.WriteLine();
+
 
 
         }
