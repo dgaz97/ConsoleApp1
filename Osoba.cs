@@ -8,6 +8,7 @@ namespace ConsoleApp1
         public String Ime { get; set; }
         public String Prezime { get; set; }
 
+        [NonSerialized]
         private Int16 _dob;
         public Int16 Dob { 
             get 
