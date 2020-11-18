@@ -2,6 +2,7 @@
 
 namespace ConsoleApp1
 {
+    [Serializable]
     class Osoba : IComparable, IDisposable
     {
         public String Ime { get; set; }

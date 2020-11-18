@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Web;
 
@@ -129,7 +130,20 @@ namespace ConsoleApp1
                 }
             }
             f.Close();
+            Console.WriteLine();
             
+            Stream f2 = new FileStream(@"./file/objects.txt", FileMode.OpenOrCreate);
+            //BinaryWriter bw = new BinaryWriter(f2);
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            binaryFormatter.Serialize(f2, osobe);
+            f2.Close();
+            Console.WriteLine("DESERIALIZED");
+            List<Osoba> osobe2;
+            f2 = new FileStream(@"./file/objects.txt", FileMode.Open, FileAccess.Read);
+            osobe2 = (List<Osoba>) binaryFormatter.Deserialize(f2);
+            osobe2.ForEach(x => Console.WriteLine(x.ToString()));
+
+
 
         }
 
