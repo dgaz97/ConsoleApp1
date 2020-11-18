@@ -106,7 +106,14 @@ namespace ConsoleApp1
             n[4] = 9;
             Console.WriteLine(n[3]);
 
+            //Test Lambda
+            testLambda(7);
+            Action a = () => Console.WriteLine("Drugi test lambda uspjesan");
+            a.Invoke();
+
         }
+
+        private static void testLambda(int x) => Console.WriteLine($"Lambda test uspješan {x}");
 
     }
 }
