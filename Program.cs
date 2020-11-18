@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Web;
 
 namespace ConsoleApp1
 {
@@ -67,6 +68,7 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Pritisnuto D");
             }
+            Console.WriteLine();
 
             //Console.WriteLine(Environment.GetCommandLineArgs()[0]);
 
@@ -86,6 +88,13 @@ namespace ConsoleApp1
             Console.WriteLine(sb);
             sb.Insert(3, "INSERT");
             Console.WriteLine(sb);
+            Console.WriteLine();
+
+            //Test HTMLEncode
+
+            String s2 = HttpUtility.HtmlEncode($"<a href=\"www.google.com\">test &</>");
+            Console.WriteLine(s2);
+            Console.WriteLine(HttpUtility.HtmlDecode(s2));
             Console.WriteLine();
 
 
