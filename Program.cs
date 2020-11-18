@@ -151,6 +151,7 @@ namespace ConsoleApp1
             Console.WriteLine(fi.LastAccessTime);
             Console.WriteLine();
             f2.Close();
+            fi.CopyTo(@"./file/objects_copy.txt",true);
             File.Delete(fi.FullName);
 
 
