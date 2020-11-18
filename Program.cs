@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Web;
 
@@ -110,6 +111,25 @@ namespace ConsoleApp1
             testLambda(7);
             Action a = () => Console.WriteLine("Drugi test lambda uspjesan");
             a.Invoke();
+
+
+            //Test file
+            Directory.CreateDirectory(@"./file/");
+            Stream f = new FileStream(@"./file/testfile.txt",FileMode.OpenOrCreate|FileMode.Append);
+            StreamWriter sw = new StreamWriter(f);
+            sw.WriteLine("Linija");
+            sw.Close();
+            f.Close();
+            f = new FileStream(@"./file/testfile.txt",FileMode.Open,FileAccess.Read);
+            using (StreamReader sr = new StreamReader(f))
+            {
+                while (!sr.EndOfStream)
+                {
+                    Console.WriteLine(sr.ReadLine());
+                }
+            }
+            f.Close();
+            
 
         }
 
