@@ -4,11 +4,12 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    class GenerickaKlasa <IVozilo>
+    class GenerickaKlasa <T>
+        where T:IVozilo
     {
-        public IVozilo objekt { get; set; }
+        public T objekt { get; set; }
         
-        public IVozilo dohvatiVozilo()
+        public T dohvatiVozilo()
         {
             return objekt;
         }
