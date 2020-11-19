@@ -166,6 +166,16 @@ namespace ConsoleApp1
             gk.objekt.elektrican = true;
             Console.WriteLine(gk.dohvatiVozilo().ispisiVozilo());
 
+            //Test Atributa
+            Atribut[] atrArray = (Atribut[]) gk.dohvatiVozilo().GetType().GetInterfaces()[0].GetCustomAttributes(typeof(Atribut),true);
+            Console.WriteLine(atrArray.Length);
+            foreach (var i in atrArray)
+            {
+                Console.WriteLine(i.tekst);
+            }
+            osoba.zastarjelaMetoda();
+            Console.WriteLine();
+
 
 
         }

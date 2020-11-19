@@ -4,6 +4,7 @@ using System.Text;
 
 namespace ConsoleApp1
 {
+    [Atribut("Ovdje je interface")]
     interface IVozilo
     {
 

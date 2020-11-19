@@ -52,5 +52,11 @@ namespace ConsoleApp1
         {
             return $"{Ime} {Prezime} --- {Dob} godine";
         }
+
+        [Obsolete]
+        public void zastarjelaMetoda()
+        {
+            Console.WriteLine("Zastarjela metoda");
+        }
     }
 }
