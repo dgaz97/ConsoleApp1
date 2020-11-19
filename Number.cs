@@ -12,7 +12,7 @@ public class Number
     }
 
 
-    public dlgt d;
+    public dlgt d = new dlgt((x) => $"{x} dobiven iz default delegate metode");
 
 
     public String genericnaMetoda <T>(T num)
