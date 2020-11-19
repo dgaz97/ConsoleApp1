@@ -154,6 +154,18 @@ namespace ConsoleApp1
             fi.CopyTo(@"./file/objects_copy.txt",true);
             File.Delete(fi.FullName);
 
+            //Test Generic
+            //Number n = new Number(); //već postoji
+            Console.WriteLine(n.genericnaMetoda(16M));
+            Console.WriteLine(n.genericnaMetoda("asdf"));
+            Console.WriteLine(n.genericnaMetoda(0x56a));
+            GenerickaKlasa<IVozilo> gk = new GenerickaKlasa<IVozilo>();
+            gk.objekt = new Motor();
+            gk.objekt.brojKotaca = 2;
+            gk.objekt.duljinaVozila = 1.75;
+            gk.objekt.elektrican = true;
+            Console.WriteLine(gk.dohvatiVozilo().ispisiVozilo());
+
 
 
         }

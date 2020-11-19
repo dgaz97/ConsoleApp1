@@ -1,4 +1,6 @@
-﻿public class Number
+﻿using System;
+
+public class Number
 {
     double[] numbers = new double[5];
 
@@ -7,4 +9,10 @@
         get => numbers[i];
         set => numbers[i] = value;
     }
+
+    public String genericnaMetoda <T>(T num)
+    {
+        return $"Generirani string: {num}";
+    }
+
 }
