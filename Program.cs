@@ -177,7 +177,7 @@ namespace ConsoleApp1
             Console.WriteLine();
 
             //Test Delegate
-            n.d = new dlgt((x) => $"{x} dobiven iz main metode");
+            n.d = (object x) => $"{x} dobiven iz main metode";
             Console.WriteLine(n.test(16));
 
 
