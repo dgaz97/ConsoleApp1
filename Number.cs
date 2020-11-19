@@ -1,5 +1,6 @@
 ﻿using System;
 
+public delegate String dlgt(object num);
 public class Number
 {
     double[] numbers = new double[5];
@@ -10,9 +11,20 @@ public class Number
         set => numbers[i] = value;
     }
 
+
+    public dlgt d;
+
+
     public String genericnaMetoda <T>(T num)
     {
-        return $"Generirani string: {num}";
+        return $"Generirani string tipa {num.GetType().FullName}: {num}";
     }
+
+    public String test<T>(T num)
+    {
+        return d(num);
+    }
+
+
 
 }

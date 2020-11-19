@@ -176,6 +176,10 @@ namespace ConsoleApp1
             osoba.zastarjelaMetoda();
             Console.WriteLine();
 
+            //Test Delegate
+            n.d = new dlgt((x) => $"{x} dobiven iz main metode");
+            Console.WriteLine(n.test(16));
+
 
 
         }
