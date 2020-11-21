@@ -1,6 +1,6 @@
 ﻿using System;
 
-public delegate String dlgt(object num);
+//public delegate String dlgt(object num);
 public class Number
 {
     double[] numbers = new double[5];
@@ -12,7 +12,8 @@ public class Number
     }
 
 
-    public dlgt d = (object x) => $"{x} dobiven iz default delegate metode";
+    public Func<object,String> d = (object x) => $"{x} dobiven iz default delegate metode";
+    //public dlgt d = (object x) => $"{x} dobiven iz default delegate metode";
 
 
     public String genericnaMetoda <T>(T num)
@@ -23,6 +24,11 @@ public class Number
     public String test<T>(T num)
     {
         return d(num);
+    }
+
+    public String deleTest<T>(T x, Func<T, String> operacija)
+    {
+        return operacija(x);
     }
 
 

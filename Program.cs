@@ -180,6 +180,11 @@ namespace ConsoleApp1
             n.d = (object x) => $"{x} dobiven iz main metode";
             Console.WriteLine(n.test(16));
 
+            Console.WriteLine(n.deleTest(6.8D, x =>
+            {
+                return $"{Math.Pow((double)x, 3)}";
+            }));
+
 
 
         }
