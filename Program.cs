@@ -116,12 +116,12 @@ namespace ConsoleApp1
 
             //Test file
             DirectoryInfo di = Directory.CreateDirectory(@"./file/");
-            Stream f = new FileStream(@"./file/testfile.txt",FileMode.OpenOrCreate|FileMode.Append);
+            Stream f = new FileStream(@"./file/testfile.txt", FileMode.OpenOrCreate | FileMode.Append);
             StreamWriter sw = new StreamWriter(f);
             sw.WriteLine("Linija");
             sw.Close();
             f.Close();
-            f = new FileStream(@"./file/testfile.txt",FileMode.Open,FileAccess.Read);
+            f = new FileStream(@"./file/testfile.txt", FileMode.Open, FileAccess.Read);
             using (StreamReader sr = new StreamReader(f))
             {
                 while (!sr.EndOfStream)
@@ -131,7 +131,7 @@ namespace ConsoleApp1
             }
             f.Close();
             Console.WriteLine();
-            
+
             Stream f2 = new FileStream(@"./file/objects.txt", FileMode.OpenOrCreate);
             //BinaryWriter bw = new BinaryWriter(f2);
             BinaryFormatter binaryFormatter = new BinaryFormatter();
@@ -140,7 +140,7 @@ namespace ConsoleApp1
             Console.WriteLine("DESERIALIZED");
             List<Osoba> osobe2;
             f2 = new FileStream(@"./file/objects.txt", FileMode.Open, FileAccess.Read);
-            osobe2 = (List<Osoba>) binaryFormatter.Deserialize(f2);
+            osobe2 = (List<Osoba>)binaryFormatter.Deserialize(f2);
             osobe2.ForEach(x => Console.WriteLine(x.ToString()));
             Console.WriteLine();
 
@@ -151,7 +151,7 @@ namespace ConsoleApp1
             Console.WriteLine(fi.LastAccessTime);
             Console.WriteLine();
             f2.Close();
-            fi.CopyTo(@"./file/objects_copy.txt",true);
+            fi.CopyTo(@"./file/objects_copy.txt", true);
             File.Delete(fi.FullName);
 
             //Test Generic
@@ -167,7 +167,7 @@ namespace ConsoleApp1
             Console.WriteLine(gk.dohvatiVozilo().ispisiVozilo());
 
             //Test Atributa
-            Atribut[] atrArray = (Atribut[]) gk.dohvatiVozilo().GetType().GetInterfaces()[0].GetCustomAttributes(typeof(Atribut),true);
+            Atribut[] atrArray = (Atribut[])gk.dohvatiVozilo().GetType().GetInterfaces()[0].GetCustomAttributes(typeof(Atribut), true);
             Console.WriteLine(atrArray.Length);
             foreach (var i in atrArray)
             {
