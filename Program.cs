@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -185,6 +186,16 @@ namespace ConsoleApp1
                 return $"{Math.Pow((double)x, 3)}";
             }));
 
+            //test dictionary
+            Dictionary<string, Osoba> ht = new Dictionary<string, Osoba>();
+            osobe.ForEach(x =>
+            {
+                ht.Add(x.Prezime, x);
+            });
+            foreach (KeyValuePair<string, Osoba> kvp in ht)
+            {
+                Console.WriteLine($"{kvp.Key} --- {kvp.Value.ToString()}");
+            }
 
 
         }
