@@ -4,13 +4,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace ConsoleApp1
 {
     class Program
     {
-        static void Main(string[] args)
+        //static Number num = new Number();
+        static volatile Int32 num = 0;
+        static async Task Main(string[] args)
         {
             List<Osoba> osobe = new List<Osoba>();
 
@@ -187,7 +191,7 @@ namespace ConsoleApp1
             }));
 
             //test dictionary
-            Dictionary<string, Osoba> ht = new Dictionary<string, Osoba>();
+            SortedDictionary<string, Osoba> ht = new SortedDictionary<string, Osoba>();
             osobe.ForEach(x =>
             {
                 ht.Add(x.Prezime, x);
@@ -198,9 +202,32 @@ namespace ConsoleApp1
             }
 
 
+            List<Task<int>> threads = new List<Task<int>>();
+            for (int i = 1; i <= 10; i++)
+            {
+                threads.Add(dretva1(i));
+            }
+            await Task.WhenAll(threads);
+            Console.WriteLine($"Zbroj na kraju: {num}");
+
         }
 
         private static void testLambda(int x) => Console.WriteLine($"Lambda test uspješan {x}");
+
+        private static async Task<int> dretva1(int brojDretve)
+        {
+            await Task.Delay(100);
+            int c = 0;
+            for (int i = 1; i <= 500000; i++)
+            {
+                c += i;
+                Interlocked.Add(ref num, i);
+                if (i % 10000 == 0) Console.WriteLine($"dretva {brojDretve} zbrojila do {i}");
+            }
+            Console.WriteLine($"Dretva {brojDretve} završila sa {c}");
+            return c;
+
+        }
 
     }
 }
